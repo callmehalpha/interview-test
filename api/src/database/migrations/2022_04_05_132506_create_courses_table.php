@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('course_title');
             $table->string('course_code');
+            $table->longText('vimeo_id')->nullable();
             $table->timestamps();
         });
     }

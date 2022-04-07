@@ -15,11 +15,15 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('gender');
-            $table->enum('status',['active','inactive'])->default('inactive');
-            $table->bigInteger('user_id');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->enum('status', ['active', 'inactive'])->nullable()->default('inactive');
+            $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

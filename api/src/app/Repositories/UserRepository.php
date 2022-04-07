@@ -1,10 +1,14 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Interfaces\UserRepositoryInterface;
+
 class UserRepository extends CoreRepository implements UserRepositoryInterface
 {
-    public function __construct(\App\Models\User $user)
+    public function __construct()
     {
-        parent::__construct($user);
+        parent::__construct(new \App\Models\User());
     }
 
 }

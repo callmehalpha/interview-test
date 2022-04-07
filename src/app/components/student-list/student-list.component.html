@@ -1,1 +1,36 @@
-<p>student-list works!</p>
+<div class="container">
+  <h2>Student Information</h2>
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Student First Name</th>
+          <th>Student Last Name</th>
+          <th>Student Email</th>
+          <th>Student Gender</th>
+          <th>Student Course</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="students">
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstname}}</td>
+          <td>{{student.lastname}}</td>
+          <td>{{student.email}}</td>
+          <td>{{student.gender}}</td>
+          <td>{{student.course.course_title}}</td>
+          <td>
+            <div class="flex flex-column">
+              <a routerLink="{{student.id}}" class="btn btn-secondary btn-sm mx-1">View</a>
+              <a routerLink="{{student.id}}/edit" class="btn bg-warning btn-sm mx-1">Edit</a>
+              <button (click)="deleteStudent(student.id)" class="btn btn-danger btn-sm mx-1">Delete</button>
+            </div>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

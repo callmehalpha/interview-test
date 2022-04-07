@@ -1,6 +1,8 @@
 <?php
 
-interface CourseRepositoryInterface
+namespace App\Interfaces;
+
+interface CourseRepositoryInterface extends CoreRepositoryInterface
 {
 
 }

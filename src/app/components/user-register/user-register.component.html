@@ -1,0 +1,34 @@
+<div class="register-photo">
+  <div class="form-container auth-wrapper">
+    <div class="image-holder"></div>
+    <form method="post" class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2 class="text-center"><strong>Register Here</strong></h2>
+
+      <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+        {{ errors?.email }}
+      </div>
+      <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+        {{ errors?.password }}
+      </div>
+      <div *ngIf="errors?.password_confirmation" class="alert alert-danger mt-3">
+        {{ errors?.password_confirmation }}
+      </div>
+      <div class="form-group"><input class="form-control" type="email" formControlName="email"  placeholder="Email"></div>
+      <div class="form-group"><input class="form-control" type="password" formControlName="password" placeholder="Password"></div>
+      <div class="form-group"><input class="form-control" type="password" formControlName="password_confirmation"
+                                     placeholder="Confirm Password"></div>
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label
+            class="form-check-label" for="flexCheckDefault">I have read and accepted your
+            <a class="already" href="#">Terms of Use and Privacy Policy</a></label></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-block btn-success" type="submit">Register</button>
+      </div>
+      <div>Already Registered? <a routerLink="/login" class="text-info">Login</a></div>
+    </form>
+  </div>
+</div>
+

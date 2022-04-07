@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Interfaces;
+
 interface CoreRepositoryInterface
 {
     public function all();
@@ -10,12 +12,6 @@ interface CoreRepositoryInterface
 
     public function delete($id);
 
-    /**
-     * @param $condition , holds the db field
-     * @param $query , hold the query value
-     * @param $model
-     * @return mixed
-     */
     public function queryWithACondition($condition, $query, array $with);
 
     public function show($id, array $with);

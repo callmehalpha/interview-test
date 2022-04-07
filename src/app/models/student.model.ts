@@ -4,5 +4,6 @@ export class Student {
   lastname?: string;
   email?: string;
   password?: string;
-  gender?:string
+  gender?: string;
+  course_id?: number;
 }

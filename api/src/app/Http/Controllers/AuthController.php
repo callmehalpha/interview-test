@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -36,10 +36,10 @@ class AuthController extends Controller
             ]);
 
             DB::table('students')->insert([
-               'firstname' => $request->firstname,
-               'lastname' => $request->lastname,
-               'gender' => $request->gender,
-               'user_id' => $user->id,
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'gender' => $request->gender,
+                'user_id' => $user->id,
             ]);
 
             DB::commit();
@@ -49,7 +49,7 @@ class AuthController extends Controller
                 'message' => 'User created successfully',
                 'data' => $user
             ], Response::HTTP_OK);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
             throw($e);
         }
@@ -74,7 +74,7 @@ class AuthController extends Controller
 
         //Request is validated
         try {
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Login credentials are invalid.',
@@ -120,6 +120,11 @@ class AuthController extends Controller
                 'message' => 'Sorry, user cannot be logged out'
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function refresh(Request $request)
+    {
+
     }
 
     public function get_user(Request $request)

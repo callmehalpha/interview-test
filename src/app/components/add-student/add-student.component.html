@@ -1,67 +1,80 @@
-<div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="firstname">Firstname</label>
-        <input
-          type="text"
-          class="form-control"
-          id="firstname"
-          required
-          [(ngModel)]="student.firstname"
-          name="firstname"
-        />
-      </div>
-      <div class="form-group">
-        <label for="lastname">Lastname</label>
-        <input
-          type="text"
-          class="form-control"
-          id="lastname"
-          required
-          [(ngModel)]="student.firstname"
-          name="lastname"
-        />
-      </div>
-      <div class="form-group">
-        <label for="Email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          required
-          [(ngModel)]="student.email"
-          name="email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="lastname">Gender</label>
-        <input
-          type="text"
-          class="form-control"
-          id="gender"
-          required
-          [(ngModel)]="student.gender"
-          name="gender"
-        />
-      </div>
+<div class="row">
+  <div class="col-md-7 offset-md-2">
+    <div class="submit-form align-content-center">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="course">Course</label>
+          <select id="course" class="form-select form-select-sm" [(ngModel)]="student.course_id" required>
+            <option value="" disabled>Select One</option>
+            <option *ngFor="let course of courses" value="{{course.id}}">
+              {{course.course_title}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="firstname">Firstname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            required
+            [(ngModel)]="student.firstname"
+            name="firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Lastname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            required
+            [(ngModel)]="student.lastname"
+            name="lastname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            required
+            [(ngModel)]="student.email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Gender</label>
+          <input
+            type="text"
+            class="form-control"
+            id="gender"
+            required
+            [(ngModel)]="student.gender"
+            name="gender"
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          required
-          [(ngModel)]="student.password"
-          name="gender"
-        />
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            required
+            [(ngModel)]="student.password"
+            name="gender"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <button (click)="saveStudent()" class="btn btn-success">Submit</button>
+        </div>
       </div>
-      <button (click)="saveStudent()" class="btn btn-success">Submit</button>
-    </div>
-    <div *ngIf="submitted">
-      <h4>Sudent was created successfully!</h4>
-      <button class="btn btn-success" (click)="newStudent()">Add</button>
+      <div *ngIf="submitted">
+        <h4>Student was created successfully!</h4>
+        <button class="btn btn-success" (click)="newStudent()"> Add</button>
+      </div>
     </div>
   </div>
 </div>

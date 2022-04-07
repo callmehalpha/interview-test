@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Interfaces\CoreRepositoryInterface;
+
 class CoreRepository implements CoreRepositoryInterface
 {
     protected $model;
@@ -47,14 +51,13 @@ class CoreRepository implements CoreRepositoryInterface
     public function show($id, array $with)
     {
         // TODO: Implement show() method.
-        return $this->model::with($with)->where('id', $id)->get();
+        return $this->model::with($with)->where('id', $id)->first();
     }
 
     public function findTheFirstOne($condition, $query, array $with)
     {
         return $this->model::with($with)->where($condition, $query)->first();
     }
-
 
 
 }
