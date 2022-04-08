@@ -3,7 +3,7 @@ import {Student} from "../../models/student.model";
 import {StudentService} from "../../services/student.service";
 import {HttpClient} from "@angular/common/http";
 
-const baseUrl = 'http://localhost:8000/api';
+const baseUrl = 'http://localhost:8002/api';
 
 @Component({
   selector: 'app-add-student',

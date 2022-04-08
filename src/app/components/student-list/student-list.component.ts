@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {StudentService} from "../../services/student.service";
 import {Router} from "@angular/router";
 
-const baseUrl = 'http://localhost:8000/api';
+const baseUrl = 'http://localhost:8002/api';
 
 
 @Component({

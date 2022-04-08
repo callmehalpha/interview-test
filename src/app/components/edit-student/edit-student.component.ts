@@ -4,7 +4,7 @@ import {StudentService} from "../../services/student.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 
-const baseUrl = 'http://localhost:8000/api';
+const baseUrl = 'http://localhost:8002/api';
 
 @Component({
   selector: 'app-edit-student',
