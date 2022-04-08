@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-let baseUrl = 'http://127.0.0.1:8000/api/auth'
+let baseUrl = 'http://localhost:8000/api/auth'
 
 export class User {
   email!: String;

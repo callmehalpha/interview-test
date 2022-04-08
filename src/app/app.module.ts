@@ -12,6 +12,10 @@ import {EditStudentComponent} from './components/edit-student/edit-student.compo
 import {UserLoginComponent} from './components/user-login/user-login.component';
 import {UserRegisterComponent} from './components/user-register/user-register.component';
 import {AuthInterceptor} from "./services/auth.interceptor";
+import {AddCourseComponent} from "./components/add-course/add-course.component";
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     StudentListComponent,
     EditStudentComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    AddCourseComponent,
+    CourseListComponent,
+    EditCourseComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,

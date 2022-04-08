@@ -16,13 +16,23 @@ class CoursesController extends Controller
 
     public function index()
     {
-        return response()->json($this->repo->all());
+        return response()->json($this->repo->allRaw()->paginate(20));
     }
 
 
     public function show($id)
     {
         return $this->repo->show($id, []);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function create(Request $request)
+    {
+        return response()->json($this->repo->create($request->all()));
     }
 
     /**

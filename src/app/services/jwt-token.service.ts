@@ -9,8 +9,8 @@ export class JwtTokenService {
   }
 
   private issuer = {
-    login: 'http://127.0.0.1:8000/api/auth/login',
-    register: 'http://127.0.0.1:8000/api/auth/register',
+    login: 'http://localhost:8000/api/auth/login',
+    register: 'http://localhost:8000/api/auth/register',
   };
 
   handleData(token: any) {

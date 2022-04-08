@@ -18,7 +18,7 @@ export class AuthStateService {
   }
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.userAuthState) {
+    if (!this.token.isLoggedIn()) {
       this.router.navigate(['login']);
       return false;
     }

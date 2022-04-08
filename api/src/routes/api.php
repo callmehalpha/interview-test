@@ -16,22 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('auth')->group(function(){
+Route::prefix('auth')->middleware('guest')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'authenticate']);
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('refresh', [AuthController::class, 'refresh']);
-    Route::get('user-profile', [AuthController::class, 'get_user']);
 });
 
-//Route::get('/show-user/{id}', [UsersController::class, 'show']);
-//Route::get('/delete-user/{id}', [UsersController::class, 'destroy']);
-//Route::get('/users', [UsersController::class, 'index']);
-//Route::post('/update-user/{id}', [UsersController::class, 'update']);
+Route::post('auth/refresh', [AuthController::class, 'refresh']);
 // courses
-Route::get('/courses', [CoursesController::class, 'index']);
+Route::prefix('course')->middleware('api')->group(function () {
+    Route::get('/', [CoursesController::class, 'index']);
+    Route::get('/{id}', [CoursesController::class, 'show']);
+    Route::post('/', [CoursesController::class, 'create']);
+    Route::put('/{id}', [CoursesController::class, 'update']);
+    Route::delete('/{id}', [CoursesController::class, 'destroy']);
+});
+
+
 // students
-Route::prefix('student')->group(function () {
+Route::prefix('student')->middleware('api')->group(function () {
     Route::get('/', [StudentController::class, 'index']);
     Route::get('/{id}', [StudentController::class, 'show']);
     Route::post('/', [StudentController::class, 'create']);

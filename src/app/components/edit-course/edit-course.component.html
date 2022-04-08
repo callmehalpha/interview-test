@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-7 offset-md-2">
+    <div class="submit-form align-content-center">
+      <h2>Edit {{ course.course_title}}</h2>
+      <div>
+
+        <div class="form-group">
+          <label for="course_title">Course Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="course_title"
+            required
+            [(ngModel)]="course.course_title"
+            name="course_title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="course_code">Course Code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="course_code"
+            required
+            [(ngModel)]="course.course_code"
+            name="course_code"
+          />
+        </div>
+        <div class="form-group">
+          <label for="vimeo">Vimeo Id</label>
+          <input
+            type="number"
+            class="form-control"
+            id="vimeo"
+            required
+            [(ngModel)]="course.vimeo_id"
+            name="vimeo"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <button (click)="updateCourse()" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

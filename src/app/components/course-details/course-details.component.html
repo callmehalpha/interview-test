@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="flex flex-column">
+    <h2 class="mb-5">Course Information</h2>
+    <div class="form-group">
+      <label class="form-label fw-bold">Course Title</label>
+      <p class="font-monospace">{{ course.course_title}} </p>
+    </div>
+    <div class="form-group">
+      <label class=" fw-bold">Course Code</label>
+      <p *ngIf="course.course_code">{{ course.course_code}}</p>
+    </div>
+    <div class="form-group">
+      <label class="fw-bold">Course Vimeo</label>
+      <div *ngIf="course.vimeo_id" id="myVideo">
+        <div #handstick id="handstick"></div>
+        <div class="btn-group">
+          <button (click)="play()" class="btn btn-success btn-sm">Play</button>
+          <button (click)="pause()" class="btn btn-secondary btn-sm">Pause</button>
+          <button (click)="stop()" class="btn btn-danger btn-sm">Stop</button>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <a routerLink="/courses" class="btn btn-success "> Back</a>
+      <a routerLink="edit" class="btn btn-warning float-right">Edit</a>
+    </div>
+  </div>
+</div>

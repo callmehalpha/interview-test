@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     protected $repo;
 
-    public function __construct(\UserRepositoryInterface $repository)
+    public function __construct(UserRepositoryInterface $repository)
     {
         $this->repo = $repository;
     }
@@ -58,6 +59,5 @@ class UsersController extends Controller
     {
         return $this->repo->delete($id);
     }
-
 
 }

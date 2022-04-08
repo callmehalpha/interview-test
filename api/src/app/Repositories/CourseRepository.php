@@ -12,4 +12,8 @@ class CourseRepository extends CoreRepository implements CourseRepositoryInterfa
         parent::__construct(new \App\Models\Course());
     }
 
+    public function allRaw()
+    {
+        return $this->model;
+    }
 }
