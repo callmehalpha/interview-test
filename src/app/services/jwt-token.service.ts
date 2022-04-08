@@ -24,7 +24,7 @@ export class JwtTokenService {
   // Verify the token
   isValidToken() {
     const token = this.getToken();
-    if (token) {
+    if (token && token !== "undefined") {
       const payload = this.payload(token);
       if (payload) {
         return Object.values(this.issuer).indexOf(payload.iss) > -1;
@@ -34,8 +34,10 @@ export class JwtTokenService {
   }
 
   payload(token: any) {
-    const jwtPayload = token.split('.')[1];
-    return JSON.parse(atob(jwtPayload));
+    if (token != "undefined" && token && token.length > 0) {
+      const jwtPayload = token.split('.')[1];
+      return JSON.parse(atob(jwtPayload));
+    }
   }
 
   // User state based on valid token

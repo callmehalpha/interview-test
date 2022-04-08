@@ -6,13 +6,14 @@ import {StudentListComponent} from "./components/student-list/student-list.compo
 import {EditStudentComponent} from "./components/edit-student/edit-student.component";
 import {UserLoginComponent} from "./components/user-login/user-login.component";
 import {UserRegisterComponent} from "./components/user-register/user-register.component";
+import {AuthStateService} from "./services/auth-state.service";
 
 const routes: Routes = [
   {path: '', redirectTo: 'students', pathMatch: 'full'},
-  {path: 'students', component: StudentListComponent},
-  {path: 'students/:id', component: StudentDetailsComponent},
-  {path: 'students/:id/edit', component: EditStudentComponent},
-  {path: 'add', component: AddStudentComponent},
+  {path: 'students', component: StudentListComponent, canActivate: [AuthStateService]},
+  {path: 'students/:id', component: StudentDetailsComponent, canActivate: [AuthStateService]},
+  {path: 'students/:id/edit', component: EditStudentComponent, canActivate: [AuthStateService]},
+  {path: 'add', component: AddStudentComponent, canActivate: [AuthStateService]},
   {path: 'register', component: UserRegisterComponent},
   {path: 'login', component: UserLoginComponent}
 ];

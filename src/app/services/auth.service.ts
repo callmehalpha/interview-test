@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-let baseUrl = '127.0.0.1:8000/api/auth'
+let baseUrl = 'http://127.0.0.1:8000/api/auth'
 
 export class User {
   email!: String;
@@ -27,8 +27,4 @@ export class AuthService {
     return this.http.post<any>(`${baseUrl}/login`, user);
   }
 
-  // Access user profile
-  profileUser(): Observable<any> {
-    return this.http.get(`${baseUrl}/user-profile`);
-  }
 }

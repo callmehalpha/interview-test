@@ -15,20 +15,21 @@ class JwtMiddleware extends BaseMiddleware
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
         try {
-            (new \Tymon\JWTAuth\JWTAuth)->parseToken()->authenticate();
+            (new JWTAuth)->parseToken()->authenticate();
         } catch (Exception $e) {
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
                 return response()->json(['status' => 'Token is Invalid']);
-            }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
-                return response()->json(['status' => 'Token is Expired']);
-            }else{
-                return response()->json(['status' => 'Authorization Token not found']);
             }
+
+            if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
+                return response()->json(['status' => 'Token is Expired']);
+            }
+
+            return response()->json(['status' => 'Authorization Token not found']);
         }
         return $next($request);
     }
